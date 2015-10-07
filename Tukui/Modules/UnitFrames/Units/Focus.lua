@@ -91,18 +91,6 @@ function TukuiUnitFrames:Focus()
 	self:Tag(Name, "[Tukui:GetNameColor][Tukui:NameLong]")
 	
 	if (C.UnitFrames.FocusAuras) then
-		local Buffs = CreateFrame("Frame", self:GetName()..'Buffs', self)
-		Buffs:SetHeight(26)
-		Buffs:SetWidth(252)
-		Buffs:Point("RIGHT", self, "LEFT", -4, 0)
-		Buffs.size = 26
-		Buffs.num = 3
-		Buffs.spacing = 2
-		Buffs.initialAnchor = "RIGHT"
-		Buffs["growth-x"] = "LEFT"
-		Buffs.PostCreateIcon = TukuiUnitFrames.PostCreateAura
-		Buffs.PostUpdateIcon = TukuiUnitFrames.PostUpdateAura
-
 		local Debuffs = CreateFrame("Frame", self:GetName()..'Debuffs', self)
 		Debuffs:SetHeight(26)
 		Debuffs:SetHeight(26)
@@ -117,7 +105,6 @@ function TukuiUnitFrames:Focus()
 		Debuffs.PostUpdateIcon = TukuiUnitFrames.PostUpdateAura
 	
 		self.Debuffs = Debuffs
-		self.Buffs = Buffs
 	end
 
 	if (C.UnitFrames.CastBar) then

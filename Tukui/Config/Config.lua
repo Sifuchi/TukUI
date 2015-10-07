@@ -5,8 +5,8 @@ local T, C, L = select(2, ...):unpack()
 ----------------------------------------------------------------
 
 C["General"] = {
-	["AutoScale"] = true,
-	["UIScale"] = 0.71,
+	["AutoScale"] = false,
+	["UIScale"] = 0.55,
 	["BackdropColor"] = {0.1, 0.1, 0.1},
 	["BorderColor"] = {0.6, 0.6, 0.6},
 	["HideShadows"] = false,
@@ -15,8 +15,8 @@ C["General"] = {
 C["ActionBars"] = {
 	["Enable"] = true,
 	["EquipBorder"] = true,
-	["HotKey"] = false,
-	["Macro"] = false,
+	["HotKey"] = true,
+	["Macro"] = true,
 	["ShapeShift"] = true,
 	["Pet"] = true,
 	["SwitchBarOnStance"] = true,
@@ -34,7 +34,7 @@ C["Auras"] = {
 	["Enable"] = true,
 	["Consolidate"] = false,
 	["Flash"] = false,
-	["ClassicTimer"] = false,
+	["ClassicTimer"] = true,
 	["HideBuffs"] = false,
 	["HideDebuffs"] = false,
 	["Animation"] = false,
@@ -43,7 +43,7 @@ C["Auras"] = {
 }
 
 C["Bags"] = {
-	["Enable"] = true,
+	["Enable"] = false,
 	["ButtonSize"] = 28,
 	["Spacing"] = 4,
 	["ItemsPerRow"] = 11,
@@ -79,7 +79,7 @@ C["DataTexts"] = {
 
 C["Merchant"] = {
 	["AutoSellGrays"] = true,
-	["SellMisc"] = true,
+	["SellMisc"] = false,
 	["AutoRepair"] = true,
 	["UseGuildRepair"] = false,
 }
@@ -107,7 +107,7 @@ C["NamePlates"] = {
 }
 
 C["Party"] = {
-	["Enable"] = true,
+	["Enable"] = false,
 	["Portrait"] = true,
 	["HealBar"] = true,
 	["ShowPlayer"] = true,
@@ -128,10 +128,10 @@ C["Raid"] = {
 	["RangeAlpha"] = 0.3,
 	["ShowRessurection"] = true,
 	["ShowHealthText"] = true,
-	["ShowPets"] = true,
+	["ShowPets"] = false,
 	["VerticalHealth"] = false,
 	["Highlight"] = true,
-	["MaxUnitPerColumn"] = 10,
+	["MaxUnitPerColumn"] = 5,
 	["Font"] = "Tukui UF",
 	["HealthFont"] = "Tukui UF Outline",
 	["PowerTexture"] = "Tukui",
@@ -159,7 +159,7 @@ C["Tooltips"] = {
 
 C["UnitFrames"] = {
 	["Enable"] = true,
-	["Portrait"] = false,
+	["Portrait"] = true,
 	["CastBar"] = true,
 	["ComboBar"] = true,
 	["UnlinkCastBar"] = false,
@@ -174,7 +174,7 @@ C["UnitFrames"] = {
 	["AnticipationBar"] = true,
 	["TargetAuras"] = true,
 	["FocusAuras"] = true,
-	["FocusTargetAuras"] = true,
+	["FocusTargetAuras"] = false,
 	["ArenaAuras"] = true,
 	["BossAuras"] = true,
 	["SerendipityBar"] = true,
@@ -183,7 +183,7 @@ C["UnitFrames"] = {
 	["Threat"] = false,
 	["AltPowerText"] = false,
 	["DarkTheme"] = false,
-	["Arena"] = true,
+	["Arena"] = false,
 	["Boss"] = true,
 	["Font"] = "Tukui UF Outline",
 	["PowerTexture"] = "Tukui",

@@ -123,7 +123,7 @@ function Minimap:PositionMinimap()
 	local Movers = T["Movers"]
 	
 	self:SetParent(T["Panels"].PetBattleHider)
-	self:Point("TOPRIGHT", UIParent, "TOPRIGHT", -30, -30)
+	self:Point("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 400, 23) 
 	self:SetMovable(true)
 	
 	Movers:RegisterFrame(self)

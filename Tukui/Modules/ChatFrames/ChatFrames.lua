@@ -230,11 +230,11 @@ function TukuiChat:SetDefaultChatFramesPositions()
 		-- Set default chat frame position
 		if (ID == 1) then
 			Frame:ClearAllPoints()
-			Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 47, 45)
+			Frame:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 15, 32)
 		elseif (C.Chat.LootFrame and ID == 4) then
 			if (not Frame.isDocked) then
 				Frame:ClearAllPoints()
-				Frame:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -47, 45)
+				Frame:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -15, 32)
 			end
 		end
 		
@@ -435,6 +435,7 @@ function TukuiChat:Setup()
 	end
 	
 	local CubeLeft = T["Panels"].CubeLeft
+	local CubeRight = T["Panels"].CubeRight
 	
 	-- Remember last channel
 	ChatTypeInfo.WHISPER.sticky = 1
@@ -447,6 +448,11 @@ function TukuiChat:Setup()
 		CubeLeft:SetScript("OnMouseDown", function(self, Button)
 			if (Button == "LeftButton") then	
 				ToggleFrame(ChatMenu)
+			end
+		end)
+		CubeRight:SetScript("OnMouseDown", function(self, Button)
+			if (Button == "LeftButton") then	
+				GarrisonLandingPage_Toggle()
 			end
 		end)
 	end

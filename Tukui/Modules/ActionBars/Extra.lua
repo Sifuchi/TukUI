@@ -12,9 +12,9 @@ function TukuiActionBars:DisableExtraButtonTexture(texture)
 end
 
 function TukuiActionBars:SetUpExtraActionButton()
-	local Holder = CreateFrame("Frame", "TukuiExtraActionButton", UIParent)
+	local Holder = CreateFrame("Frame", "TukuiExtraActionButton", Minimap)
 	Holder:Size(160, 80)
-	Holder:SetPoint("BOTTOM", 0, 250)
+	Holder:SetPoint("BOTTOM", Minimap, "TOP", 0, 5)
 	
 	ExtraActionBarFrame:SetParent(UIParent)
 	ExtraActionBarFrame:ClearAllPoints()

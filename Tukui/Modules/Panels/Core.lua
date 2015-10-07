@@ -5,41 +5,33 @@ local Panels = CreateFrame("Frame")
 function Panels:Enable()
 	local Background = C.Chat.Background
 	
-	local BottomLine = CreateFrame("Frame", nil, UIParent)
-	BottomLine:SetTemplate()
-	BottomLine:Size(2)
-	BottomLine:Point("BOTTOMLEFT", 30, 30)
-	BottomLine:Point("BOTTOMRIGHT", -30, 30)
-	BottomLine:SetFrameStrata("BACKGROUND")
-	BottomLine:SetFrameLevel(0)
-
-	local LeftVerticalLine = CreateFrame("Frame", nil, BottomLine)
-	LeftVerticalLine:SetTemplate()
-	LeftVerticalLine:Size(2, 130)
-	LeftVerticalLine:Point("BOTTOMLEFT", 0, 0)
-	LeftVerticalLine:SetFrameLevel(0)
-	LeftVerticalLine:SetFrameStrata("BACKGROUND")
-	LeftVerticalLine:SetAlpha(C.Chat.Background and 0 or 1)
-
-	local RightVerticalLine = CreateFrame("Frame", nil, BottomLine)
-	RightVerticalLine:SetTemplate()
-	RightVerticalLine:Size(2, 130)
-	RightVerticalLine:Point("BOTTOMRIGHT", 0, 0)
-	RightVerticalLine:SetFrameLevel(0)
-	RightVerticalLine:SetFrameStrata("BACKGROUND")
-	RightVerticalLine:SetAlpha(C.Chat.Background and 0 or 1)
-
 	local DataTextLeft = CreateFrame("Frame", "TukuiLeftDataTextBox", UIParent)
 	DataTextLeft:Size(370, 23)
-	DataTextLeft:SetPoint("LEFT", BottomLine, 14, -1)
+	DataTextLeft:SetPoint("BOTTOMLEFT", LeftVerticalLine, 5, 1)
 	DataTextLeft:SetTemplate()
 	DataTextLeft:SetFrameLevel(1)
 
 	local DataTextRight = CreateFrame("Frame", "TukuiRightDataTextBox", UIParent)
 	DataTextRight:Size(370, 23)
-	DataTextRight:SetPoint("RIGHT", BottomLine, -14, -1)
+	DataTextRight:SetPoint("BOTTOMRIGHT", RightVerticalLine, -5, 1)
 	DataTextRight:SetTemplate()
 	DataTextRight:SetFrameLevel(1)
+
+	local LeftVerticalLine = CreateFrame("Frame", nil, DataTextLeft)
+	LeftVerticalLine:SetTemplate()
+	LeftVerticalLine:Size(2, 177)
+	LeftVerticalLine:Point("BOTTOMLEFT", 0, 0)
+	LeftVerticalLine:SetFrameLevel(0)
+	LeftVerticalLine:SetFrameStrata("BACKGROUND")
+	LeftVerticalLine:SetAlpha(C.Chat.Background and 0 or 1)
+
+	local RightVerticalLine = CreateFrame("Frame", nil, DataTextRight)
+	RightVerticalLine:SetTemplate()
+	RightVerticalLine:Size(2, 177)
+	RightVerticalLine:Point("BOTTOMRIGHT", 0, 0)
+	RightVerticalLine:SetFrameLevel(0)
+	RightVerticalLine:SetFrameStrata("BACKGROUND")
+	RightVerticalLine:SetAlpha(C.Chat.Background and 0 or 1)
 
 	local Hider = CreateFrame("Frame", nil, UIParent)
 	Hider:Hide()
@@ -64,7 +56,6 @@ function Panels:Enable()
 	end
 
 	if C.Chat.Background then
-		BottomLine:SetAlpha(0)
 		
 		local LeftChatBG = CreateFrame("Frame", nil, DataTextLeft)
 		LeftChatBG:SetTemplate("Transparent")
@@ -103,7 +94,6 @@ function Panels:Enable()
 	PetBattleHider:SetFrameStrata("LOW")
 	RegisterStateDriver(PetBattleHider, "visibility", "[petbattle] hide; show")
 
-	self.BottomLine = BottomLine
 	self.LeftVerticalLine = LeftVerticalLine
 	self.RightVerticalLine = RightVerticalLine
 	self.DataTextLeft = DataTextLeft

@@ -9,7 +9,7 @@ function VehicleIndicator:Enable()
 	
 	Indicator:ClearAllPoints()
 	Indicator:SetParent(UIParent)
-	Indicator:SetPoint("BOTTOM", 0, T.ScreenHeight / 4)
+	Indicator:SetPoint("TOPRIGHT", -2, -168)
 	
 	-- This will block UIParent_ManageFramePositions() to be executed
 	Indicator.IsShown = function() return false end

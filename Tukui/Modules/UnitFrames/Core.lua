@@ -793,8 +793,8 @@ function TukuiUnitFrames:GetRaidFramesAttributes()
 			self:SetWidth(header:GetAttribute("initial-width"))
 			self:SetHeight(header:GetAttribute("initial-height"))
 		]],
-		"initial-width", T.Scale(66),
-		"initial-height", T.Scale(50),
+		"initial-width", T.Scale(64),
+		"initial-height", T.Scale(35),
 		"showParty", true,
 		"showRaid", true,
 		"showPlayer", true,
@@ -828,8 +828,8 @@ function TukuiUnitFrames:GetPetRaidFramesAttributes()
 		"columnAnchorPoint", "LEFT",
 		"yOffset", T.Scale(-4),
 		"xOffset", T.Scale(4),
-		"initial-width", T.Scale(66),
-		"initial-height", T.Scale(50),
+		"initial-width", T.Scale(64),
+		"initial-height", T.Scale(35),
 		"oUF-initialConfigFunction", [[
 			local header = self:GetParent()
 			self:SetWidth(header:GetAttribute("initial-width"))
@@ -934,41 +934,41 @@ function TukuiUnitFrames:CreateUnits()
 	local Movers = T["Movers"]
 
 	local Player = oUF:Spawn("player")
-	Player:SetPoint("BOTTOMLEFT", TukuiUnitFrames.Anchor, "TOPLEFT", 0, 8)
+	Player:SetPoint("BOTTOMLEFT", TukuiUnitFrames.Anchor, "BOTTOMLEFT", -256, 0)
 	Player:SetParent(Panels.PetBattleHider)
 	Player:Size(250, 57)
 
 	local Target = oUF:Spawn("target")
-	Target:SetPoint("BOTTOMRIGHT", TukuiUnitFrames.Anchor, "TOPRIGHT", 0, 8)
+	Target:SetPoint("BOTTOMRIGHT", TukuiUnitFrames.Anchor, "BOTTOMRIGHT", 256, 0)
 	Target:SetParent(Panels.PetBattleHider)
 	Target:Size(250, 57)
 
 	local TargetOfTarget = oUF:Spawn("targettarget")
-	TargetOfTarget:SetPoint("BOTTOM", TukuiUnitFrames.Anchor, "TOP", 0, 8)
+	TargetOfTarget:SetPoint("LEFT", Target, "RIGHT", 4, -10)
 	TargetOfTarget:SetParent(Panels.PetBattleHider)
 	TargetOfTarget:Size(129, 36)
 
 	local Pet = oUF:Spawn("pet")
 	Pet:SetParent(Panels.PetBattleHider)
-	Pet:SetPoint("BOTTOM", TukuiUnitFrames.Anchor, "TOP", 0, 49)
+	Pet:SetPoint("BOTTOMLEFT", Player, "TOPLEFT", 0, 12)
 	Pet:Size(129, 36)
 
 	local Focus = oUF:Spawn("focus")
-	Focus:SetPoint("BOTTOMLEFT", TukuiUnitFrames.Anchor, "TOPLEFT", 0, 300)
+	Focus:SetPoint("BOTTOMLEFT", Pet, "TOPLEFT", 0, 26)
 	Focus:SetParent(Panels.PetBattleHider)
-	Focus:Size(200, 29)
-
+	Focus:Size(129, 29)
+--[[
 	local FocusTarget = oUF:Spawn("focustarget")
-	FocusTarget:SetPoint("BOTTOM", Focus, "TOP", 0, 35)
+	FocusTarget:SetPoint("BOTTOMLEFT", Focus, "TOPLEFT", 0, 2)
 	FocusTarget:SetParent(Panels.PetBattleHider)
-	FocusTarget:Size(200, 29)
-	
+	FocusTarget:Size(129, 29)
+--]]	
 	self.Units.Player = Player
 	self.Units.Target = Target
 	self.Units.TargetOfTarget = TargetOfTarget
 	self.Units.Pet = Pet
 	self.Units.Focus = Focus
-	self.Units.FocusTarget = FocusTarget
+--	self.Units.FocusTarget = FocusTarget
 	
 	if (C.UnitFrames.Arena) then
 		local Arena = {}
@@ -981,7 +981,7 @@ function TukuiUnitFrames:CreateUnits()
 			else
 				Arena[i]:SetPoint("BOTTOM", Arena[i-1], "TOP", 0, 35)
 			end
-			Arena[i]:Size(200, 29)
+			Arena[i]:Size(129, 29)
 		
 			Movers:RegisterFrame(Arena[i])
 		end
@@ -1000,9 +1000,9 @@ function TukuiUnitFrames:CreateUnits()
 			if (i == 1) then
 				Boss[i]:SetPoint("BOTTOMRIGHT", TukuiUnitFrames.Anchor, "TOPRIGHT", 0, 300)
 			else
-				Boss[i]:SetPoint("BOTTOM", Boss[i-1], "TOP", 0, 35)             
+				Boss[i]:SetPoint("BOTTOM", Boss[i-1], "TOP", 0, 25)             
 			end
-			Boss[i]:Size(200, 29)
+			Boss[i]:Size(129, 29)
 		
 			Movers:RegisterFrame(Boss[i])
 		end
@@ -1025,7 +1025,7 @@ function TukuiUnitFrames:CreateUnits()
 	if C.Raid.Enable then
 		local Raid = oUF:SpawnHeader(TukuiUnitFrames:GetRaidFramesAttributes())
 		Raid:SetParent(Panels.PetBattleHider)
-		Raid:Point("TOPLEFT", UIParent, "TOPLEFT", 30, -30)
+		Raid:Point("BOTTOM", UIParent, "BOTTOM", 0, 87)
 		
 		if C.Raid.ShowPets then
 			local Pet = oUF:SpawnHeader(TukuiUnitFrames:GetPetRaidFramesAttributes())
@@ -1053,7 +1053,7 @@ function TukuiUnitFrames:CreateUnits()
 	Movers:RegisterFrame(TargetOfTarget)
 	Movers:RegisterFrame(Pet)
 	Movers:RegisterFrame(Focus)
-	Movers:RegisterFrame(FocusTarget)
+--	Movers:RegisterFrame(FocusTarget)
 end
 
 function TukuiUnitFrames:ShowArenaPreparation()

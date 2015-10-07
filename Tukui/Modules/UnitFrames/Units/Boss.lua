@@ -94,28 +94,28 @@ function TukuiUnitFrames:Boss()
 		local Buffs = CreateFrame("Frame", self:GetName()..'Buffs', self)
 		Buffs:SetHeight(26)
 		Buffs:SetWidth(252)
-		Buffs:Point("RIGHT", self, "LEFT", -4, 0)
+		Buffs:Point("LEFT", self, "RIGHT", -4, 0)
 		Buffs.size = 26
 		Buffs.num = 3
 		Buffs.spacing = 2
-		Buffs.initialAnchor = "RIGHT"
-		Buffs["growth-x"] = "LEFT"
+		Buffs.initialAnchor = "LEFT"
+		Buffs["growth-x"] = "RIGHT"
 		Buffs.PostCreateIcon = TukuiUnitFrames.PostCreateAura
 		Buffs.PostUpdateIcon = TukuiUnitFrames.PostUpdateAura
-
+--[[
 		local Debuffs = CreateFrame("Frame", self:GetName()..'Debuffs', self)
 		Debuffs:SetHeight(26)
 		Debuffs:SetWidth(200)
-		Debuffs:Point("LEFT", self, "RIGHT", 4, 0)
+		Debuffs:Point("RIGHT", self, "LEFT", 4, 0)
 		Debuffs.size = 26
 		Debuffs.num = 5
 		Debuffs.spacing = 2
-		Debuffs.initialAnchor = "LEFT"
-		Debuffs["growth-x"] = "RIGHT"
+		Debuffs.initialAnchor = "RIGHT"
+		Debuffs["growth-x"] = "LEFT"
 		Debuffs.PostCreateIcon = TukuiUnitFrames.PostCreateAura
 		Debuffs.PostUpdateIcon = TukuiUnitFrames.PostUpdateAura
-	
-		self.Debuffs = Debuffs
+--]]	
+--		self.Debuffs = Debuffs
 		self.Buffs = Buffs
 	end
 	

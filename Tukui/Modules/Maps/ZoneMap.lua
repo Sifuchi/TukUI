@@ -78,7 +78,7 @@ function ZoneMap:Enable()
 	
 	BattlefieldMinimap:SetHeight(165)
 	BattlefieldMinimap:ClearAllPoints()
-	BattlefieldMinimap:SetPoint("TOPRIGHT", Minimap, "TOPLEFT", 0, 0)
+	BattlefieldMinimap:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", -2, -2)
 	BattlefieldMinimap:StripTextures()
 
 	BattlefieldMinimap:CreateBackdrop()

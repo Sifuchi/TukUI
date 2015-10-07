@@ -44,11 +44,11 @@ function Tooltip:CreateAnchor()
 	local Movers = T["Movers"]
 	
 	local Anchor = CreateFrame("Frame", "TukuiTooltipAnchor", UIParent)
-	Anchor:Size(200, DataTextRight:GetHeight() - 4)
+	Anchor:Size(200, 20)
 	Anchor:SetFrameStrata("TOOLTIP")
 	Anchor:SetFrameLevel(20)
 	Anchor:SetClampedToScreen(true)
-	Anchor:SetPoint("BOTTOMRIGHT", DataTextRight, 0, 2)
+	Anchor:SetPoint("LEFT", UIParent, 0, 2)
 	Anchor:SetMovable(true)
 	
 	self.Anchor = Anchor

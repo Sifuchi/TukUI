@@ -97,8 +97,8 @@ function TukuiUnitFrames:Raid()
 	Panel:SetTemplate()
 	Panel:SetBackdropBorderColor(C["General"].BorderColor[1] * 0.7, C["General"].BorderColor[2] * 0.7, C["General"].BorderColor[3] * 0.7)
 	
-	local Name = Panel:CreateFontString(nil, "OVERLAY", 1)
-	Name:SetPoint("CENTER")
+	local Name = Health:CreateFontString(nil, "OVERLAY", 1)
+	Name:SetPoint("BOTTOM")
 	Name:SetFontObject(Font)
 	
 	local ReadyCheck = Power:CreateTexture(nil, "OVERLAY", 2)
